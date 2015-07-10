@@ -5,13 +5,16 @@ void init();
 
 using namespace std;
 
-void lineSegment(void){
-    glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(0.0, 0.4, 0.2);
+void line(){
     glBegin(GL_LINES);
     glVertex2i(180,15);
     glVertex2i(10,145);
     glEnd();
+}
+void onDraw(void){
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(0.0, 0.4, 0.2);
+    line();
     glFlush();
 }
 
@@ -32,7 +35,7 @@ int main(int argc, char** argv) {
 
     init();
 
-    glutDisplayFunc(lineSegment);
+    glutDisplayFunc(onDraw);
     glutMainLoop();
     return 0;
 }
